@@ -10,6 +10,8 @@ public class Startup : IStartup
     {
         const string configurationFolder = "Configurations";
 
+        host.EnvironmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")!;
+
         configurationBuilder
             .SetBasePath(AppContext.BaseDirectory)
             .AddJsonFile($"{configurationFolder}/appsettings.json", optional: false, reloadOnChange: true)
