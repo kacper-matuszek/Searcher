@@ -9,8 +9,8 @@ public static class HostBuilderExtensions
     {
         var startup = new TStartup();
 
-        hostBuilder.ConfigureServices((context, services) => startup.ConfigureServices(services, context.Configuration));
-
-        return hostBuilder;
+        return hostBuilder
+            .ConfigureAppConfiguration((context, configurationBuilder) => startup.ConfigureConfiguration(configurationBuilder, context.HostingEnvironment))
+            .ConfigureServices((context, services) => startup.ConfigureServices(services, context.Configuration));
     }
 }
