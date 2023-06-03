@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
@@ -7,13 +7,12 @@ namespace Searcher.Common.Host.Extensions;
 
 public static class HostBuilderExtensions
 {
-    public static IHostBuilder UseStartup<TStartup>(
+    public static IHost BuildUsingStartup<TStartup>(
         this IHostBuilder hostBuilder)
         where TStartup : IStartup, new()
     {
         var startup = new TStartup();
-
-        return hostBuilder
+        hostBuilder
             .ConfigureAppConfiguration((context, configurationBuilder) =>
             {
                 ConfigureHostEnvironment(context.HostingEnvironment);
@@ -21,6 +20,12 @@ public static class HostBuilderExtensions
             })
             .AddLogging()
             .ConfigureServices((context, services) => startup.ConfigureServices(services, context.Configuration));
+
+        var host = hostBuilder.Build();
+
+        startup.ConfigureApp(new ApplicationBuilder(host.Services));
+
+        return host;
     }
 
     private static void ConfigureHostEnvironment(IHostEnvironment host)

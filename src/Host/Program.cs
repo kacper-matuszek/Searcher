@@ -3,7 +3,6 @@ using Searcher.Common.Host.Extensions;
 using Searcher.Host;
 
 var host = Host.CreateDefaultBuilder(args)
-    .UseStartup<Startup>()
-    .Build();
+    .BuildUsingStartup<Startup>();
 
 await host.RunAsync();
