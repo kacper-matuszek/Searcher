@@ -41,7 +41,7 @@ public class MongoDbInitializer : IMongoDbInitializer
         BsonDefaults.GuidRepresentationMode = GuidRepresentationMode.V3;
         BsonSerializer.RegisterSerializer(guidSerializer);
         BsonSerializer.RegisterSerializer(new NullableSerializer<Guid>(guidSerializer));
-        ConventionRegistry.Register("eloptio-conventions", new MongoDbConventions(), _ => true);
+        ConventionRegistry.Register("conventions", new MongoDbConventions(), _ => true);
     }
 
     private class MongoDbConventions : IConventionPack
