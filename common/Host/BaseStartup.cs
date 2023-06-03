@@ -14,5 +14,6 @@ public abstract class BaseStartup : IStartup
     public virtual void ConfigureConfiguration(IConfigurationBuilder configurationBuilder, IHostEnvironment host)
     {
         configurationBuilder.AddAppSettingsConfiguration(host);
+        configurationBuilder.AddLogsConfiguration(host);
     }
 }

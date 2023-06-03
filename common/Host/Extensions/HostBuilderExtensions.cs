@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using System;
+using Microsoft.Extensions.Hosting;
 
 namespace Searcher.Common.Host.Extensions;
 
@@ -10,7 +11,17 @@ public static class HostBuilderExtensions
         var startup = new TStartup();
 
         return hostBuilder
-            .ConfigureAppConfiguration((context, configurationBuilder) => startup.ConfigureConfiguration(configurationBuilder, context.HostingEnvironment))
+            .ConfigureAppConfiguration((context, configurationBuilder) =>
+            {
+                ConfigureHostEnvironment(context.HostingEnvironment);
+                startup.ConfigureConfiguration(configurationBuilder, context.HostingEnvironment);
+            })
             .ConfigureServices((context, services) => startup.ConfigureServices(services, context.Configuration));
+    }
+
+    private static void ConfigureHostEnvironment(IHostEnvironment host)
+    {
+        host.ApplicationName = "Searcher";
+        host.EnvironmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")!;
     }
 }

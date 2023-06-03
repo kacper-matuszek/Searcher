@@ -8,15 +8,27 @@ internal static class ConfigurationBuilderExtensions
 {
     private const string ConfigurationFolderName = "Configurations";
 
-    internal static IConfigurationBuilder AddAppSettingsConfiguration(this IConfigurationBuilder configurationBuilder, IHostEnvironment host)
+    internal static IConfigurationBuilder AddAppSettingsConfiguration(
+        this IConfigurationBuilder configurationBuilder,
+        IHostEnvironment host)
     {
-        host.EnvironmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")!;
-
         configurationBuilder
             .SetBasePath(AppContext.BaseDirectory)
             .AddJsonFile($"{ConfigurationFolderName}/appsettings.json", optional: false, reloadOnChange: true)
             .AddJsonFile($"{ConfigurationFolderName}/appsettings.{host.EnvironmentName}.json", optional: true)
             .AddEnvironmentVariables();
+
+        return configurationBuilder;
+    }
+
+    internal static IConfigurationBuilder AddLogsConfiguration(
+        this IConfigurationBuilder configurationBuilder,
+        IHostEnvironment host)
+    {
+        configurationBuilder
+            .SetBasePath(AppContext.BaseDirectory)
+            .AddJsonFile($"{ConfigurationFolderName}/log-config.json", optional: false, reloadOnChange: true)
+            .AddJsonFile($"{ConfigurationFolderName}/log-config.{host.EnvironmentName}.json", optional: true);
 
         return configurationBuilder;
     }
