@@ -11,32 +11,34 @@ namespace Searcher.Common.Host.HealthChecks;
 
 public class MongoHealthCheck : IHealthCheck
 {
-    private readonly IMongoClient _client;
-    private readonly MongoOptions _options;
+    private readonly IMongoDatabase _database;
 
     public MongoHealthCheck(IMongoClient client, IOptions<MongoOptions> options)
     {
-        _client = client;
-        _options = options.Value;
+        _database = client.GetDatabase(options.Value.DatabaseName);
     }
 
-    public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = new CancellationToken())
+    public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = new CancellationToken())
     {
-        return CheckConnection();
+        var isStable = await CheckConnection();
+
+        if (isStable)
+            return HealthCheckResult.Healthy();
+
+        return HealthCheckResult.Unhealthy("Cannot make stable connection with MongoDb");
     }
 
-    private async Task<HealthCheckResult> CheckConnection()
+    private async Task<bool> CheckConnection()
     {
         try
         {
-            var db = _client.GetDatabase(_options.DatabaseName);
-            await db.RunCommandAsync((Command<BsonDocument>)"{ping:1}");
+            await _database.RunCommandAsync((Command<BsonDocument>)"{ping:1}");
         }
         catch (Exception)
         {
-            return HealthCheckResult.Unhealthy();
+            return false;
         }
 
-        return HealthCheckResult.Healthy();
+        return true;
     }
 }

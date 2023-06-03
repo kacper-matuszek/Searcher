@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Searcher.Common.Host.Extensions;
 using Searcher.Common.Host.HealthChecks;
-using Searcher.Persistence.Mongo;
 
 namespace Searcher.Common.Host;
 
