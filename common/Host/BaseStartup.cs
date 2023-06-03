@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Searcher.Common.Host.Extensions;
+using Searcher.Persistence.Mongo;
 
 namespace Searcher.Common.Host;
 
@@ -9,6 +10,7 @@ public abstract class BaseStartup : IStartup
 {
     public virtual IServiceCollection ConfigureServices(IServiceCollection services, IConfiguration configuration)
     {
+        services.Configure<MongoOptions>(MongoOptions.SectionName, configuration);
         return services;
     }
 
