@@ -11,7 +11,7 @@ internal static class ServiceCollectionExtensions
 {
     internal static IServiceCollection AddMongo(this IServiceCollection services, IConfiguration configuration)
     {
-        services.Configure<MongoOptions>(MongoOptions.SectionName, configuration);
+        services.Configure<MongoOptions>(configuration.GetSection(MongoOptions.SectionName));
         services.AddSingleton<IMongoClient>(sp =>
         {
             var options = sp.GetRequiredService<IOptions<MongoOptions>>().Value;
