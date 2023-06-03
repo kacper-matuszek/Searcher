@@ -1,3 +1,115 @@
 {
-
+  "Serilog": {
+    "Using": [],
+    "MinimumLevel": {
+      "Default": "Warning",
+      "Override": {
+        "Microsoft": "Warning",
+        "Microsoft.Hosting.Lifetime": "Information",
+        "System": "Warning",
+        "Quartz.Plugin.History.LoggingJobHistoryPlugin": "Warning"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "Console"
+      },
+      {
+        "Name": "Logger",
+        "Args": {
+          "configureLogger": {
+            "WriteTo": [
+              {
+                "Name": "File",
+                "Args": {
+                  "path": "./Logs/log.txt",
+                  "rollingInterval": "Day",
+                  "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss} ({CorrelationId}/{Application}/{MachineName}/{ProcessId}/{ThreadId}) [{Level}] {SourceContext} - {Message}{NewLine}{Exception}"
+                }
+              }
+            ],
+            "Filter": [
+              {
+                "Name": "ByExcluding",
+                "Args": {
+                  "expression": "SourceContext like 'Microsoft%'"
+                }
+              },
+              {
+                "Name": "ByExcluding",
+                "Args": {
+                  "expression": "SourceContext like 'System%'"
+                }
+              },
+              {
+                "Name": "ByExcluding",
+                "Args": {
+                  "expression": "SourceContext like 'Eloptio.Enterprise.Common.Infrastructure.Middleware.ControllerLoggingMiddleware'"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "Name": "Logger",
+        "Args": {
+          "configureLogger": {
+            "WriteTo": [
+              {
+                "Name": "File",
+                "Args": {
+                  "path": "./Logs/host.txt",
+                  "rollingInterval": "Day",
+                  "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss} ({CorrelationId}/{Application}/{MachineName}/{ProcessId}/{ThreadId}) [{Level}] {SourceContext} - {Message}{NewLine}{Exception}"
+                }
+              }
+            ],
+            "Filter": [
+              {
+                "Name": "ByIncludingOnly",
+                "Args": {
+                  "expression": "SourceContext like 'Microsoft%'"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "Name": "Logger",
+        "Args": {
+          "configureLogger": {
+            "WriteTo": [
+              {
+                "Name": "File",
+                "Args": {
+                  "path": "./Logs/requestLog.txt",
+                  "rollingInterval": "Day",
+                  "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss} ({CorrelationId}/{Application}/{MachineName}/{ProcessId}/{ThreadId}) [{Level}] {SourceContext} - {Message}{NewLine}{Exception}"
+                }
+              }
+            ],
+            "Filter": [
+              {
+                "Name": "ByIncludingOnly",
+                "Args": {
+                  "expression": "SourceContext like 'Eloptio.Enterprise.Common.Infrastructure.Middleware.ControllerLoggingMiddleware'"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "Enrich": [
+      "FromLogContext",
+      "WithMachineName",
+      "WithProcessId",
+      "WithThreadId"
+    ],
+    "Properties": {
+      "Application": "Searcher"
+    }
+  }
 }

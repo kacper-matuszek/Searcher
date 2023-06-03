@@ -7,13 +7,17 @@ namespace Searcher.Common.Host;
 
 public abstract class BaseStartup : IStartup
 {
-    public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+    public virtual IServiceCollection ConfigureServices(IServiceCollection services, IConfiguration configuration)
     {
+        return services;
     }
 
-    public virtual void ConfigureConfiguration(IConfigurationBuilder configurationBuilder, IHostEnvironment host)
+    public virtual IConfigurationBuilder ConfigureConfiguration(
+        IConfigurationBuilder configurationBuilder,
+        IHostEnvironment host)
     {
         configurationBuilder.AddAppSettingsConfiguration(host);
         configurationBuilder.AddLogsConfiguration(host);
+        return configurationBuilder;
     }
 }
