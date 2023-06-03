@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 
-namespace Searcher.Host.Extensions;
+namespace Searcher.Common.Host.Extensions;
 
 public static class HostBuilderExtensions
 {

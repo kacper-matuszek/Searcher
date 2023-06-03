@@ -1,1 +1,5 @@
-<Project Sdk="Microsoft.NET.Sdk"/>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+  </ItemGroup>
+</Project>
