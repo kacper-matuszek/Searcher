@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,21 +9,23 @@ namespace Searcher.Common.Host;
 
 public abstract class BaseStartup : IStartup
 {
-    public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+    protected BaseStartup(IHostEnvironment host)
     {
-        services.AddMongo(configuration);
+        Configuration = new ConfigurationBuilder()
+            .AddAppSettingsConfiguration(host)
+            .AddLogsConfiguration(host)
+            .Build();
     }
 
-    public virtual void ConfigureConfiguration(
-        IConfigurationBuilder configurationBuilder,
-        IHostEnvironment host)
+    public IConfiguration Configuration { get; } 
+
+    public virtual void ConfigureServices(IServiceCollection services)
     {
-        configurationBuilder.AddAppSettingsConfiguration(host);
-        configurationBuilder.AddLogsConfiguration(host);
+        services.AddMongo(Configuration);
     }
 
-    public virtual void ConfigureApp(IApplicationBuilder applicationBuilder)
+    public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        applicationBuilder.UseMongo();
+        app.UseMongo();
     }
 }

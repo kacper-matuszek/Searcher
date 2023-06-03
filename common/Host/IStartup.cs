@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace Searcher.Common.Host;
 
 public interface IStartup
 {
-    public void ConfigureServices(IServiceCollection services, IConfiguration configuration);
-    public void ConfigureConfiguration(IConfigurationBuilder configurationBuilder, IHostEnvironment host);
-    public void ConfigureApp(IApplicationBuilder applicationBuilder);
+    public IConfiguration Configuration { get; }
+    public void ConfigureServices(IServiceCollection services);
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env);
 }

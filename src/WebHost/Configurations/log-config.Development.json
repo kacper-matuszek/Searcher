@@ -1,7 +1,8 @@
 {
   "Serilog": {
+    "Using": [],
     "MinimumLevel": {
-      "Default": "Information",
+      "Default": "Warning",
       "Override": {
         "Microsoft": "Warning",
         "Microsoft.Hosting.Lifetime": "Information",
