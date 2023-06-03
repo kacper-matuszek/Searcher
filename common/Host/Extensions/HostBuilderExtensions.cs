@@ -32,12 +32,11 @@ public static class HostBuilderExtensions
     private static IHostBuilder AddLogging(this IHostBuilder hostBuilder)
     {
         hostBuilder.ConfigureLogging((ctx, _) =>
-            {
-                Log.Logger = new LoggerConfiguration()
-                    .ReadFrom.Configuration(ctx.Configuration)
-                    .CreateLogger();
-            })
-            .UseSerilog((ctx, cfg) => cfg.ReadFrom.Configuration(ctx.Configuration));
+        {
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(ctx.Configuration)
+                .CreateLogger();
+        }).UseSerilog((ctx, cfg) => cfg.ReadFrom.Configuration(ctx.Configuration));
 
         return hostBuilder;
     }
