@@ -5,7 +5,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using Searcher.Persistence.Mongo;
+using Searcher.Common.Persistence.Mongo;
 
 namespace Searcher.Common.Host.HealthChecks;
 

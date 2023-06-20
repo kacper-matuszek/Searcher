@@ -4,9 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using MongoDB.Driver;
-using Searcher.Application.Abstractions;
+using Searcher.Common.Application.Abstractions;
 
-namespace Searcher.Persistence.Mongo.Repositories;
+namespace Searcher.Common.Persistence.Mongo.Repositories;
 
 public abstract class MongoRepository<TEntity, TKey> : IRepository<TEntity, TKey>
     where TEntity : class, IKey<TKey>

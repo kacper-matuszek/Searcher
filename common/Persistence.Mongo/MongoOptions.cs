@@ -1,4 +1,4 @@
-﻿namespace Searcher.Persistence.Mongo;
+﻿namespace Searcher.Common.Persistence.Mongo;
 
 public class MongoOptions
 {

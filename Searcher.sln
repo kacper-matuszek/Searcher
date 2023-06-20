@@ -9,11 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{8972F8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searcher.Common.Host", "common\Host\Searcher.Common.Host.csproj", "{0A6BE566-AFAC-4DFA-B8A5-36AF2C2430E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searcher.Persistence.Mongo", "common\Persistence.Mongo\Searcher.Persistence.Mongo.csproj", "{9A301D3F-806A-44DC-A2AA-C7B9CB07572D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searcher.Application.Abstractions", "common\Application.Abstractions\Searcher.Application.Abstractions.csproj", "{5C41601B-46CD-478F-AD5B-04A5AECB1430}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searcher.WebHost", "src\WebHost\Searcher.WebHost.csproj", "{7B0CB251-A951-4427-9771-F603359B4111}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searcher.Common.Application.Abstractions", "common\Application.Abstractions\Searcher.Common.Application.Abstractions.csproj", "{BE1C76A9-603C-47F2-BF41-55410F6F392B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searcher.Common.Persistence.Mongo", "common\Persistence.Mongo\Searcher.Common.Persistence.Mongo.csproj", "{6224BEFD-C354-427C-8027-51D0FF24EBC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,27 +25,27 @@ Global
 		{0A6BE566-AFAC-4DFA-B8A5-36AF2C2430E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A6BE566-AFAC-4DFA-B8A5-36AF2C2430E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A6BE566-AFAC-4DFA-B8A5-36AF2C2430E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A301D3F-806A-44DC-A2AA-C7B9CB07572D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A301D3F-806A-44DC-A2AA-C7B9CB07572D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A301D3F-806A-44DC-A2AA-C7B9CB07572D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A301D3F-806A-44DC-A2AA-C7B9CB07572D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C41601B-46CD-478F-AD5B-04A5AECB1430}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C41601B-46CD-478F-AD5B-04A5AECB1430}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C41601B-46CD-478F-AD5B-04A5AECB1430}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C41601B-46CD-478F-AD5B-04A5AECB1430}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7B0CB251-A951-4427-9771-F603359B4111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7B0CB251-A951-4427-9771-F603359B4111}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B0CB251-A951-4427-9771-F603359B4111}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B0CB251-A951-4427-9771-F603359B4111}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE1C76A9-603C-47F2-BF41-55410F6F392B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE1C76A9-603C-47F2-BF41-55410F6F392B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE1C76A9-603C-47F2-BF41-55410F6F392B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE1C76A9-603C-47F2-BF41-55410F6F392B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6224BEFD-C354-427C-8027-51D0FF24EBC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6224BEFD-C354-427C-8027-51D0FF24EBC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6224BEFD-C354-427C-8027-51D0FF24EBC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6224BEFD-C354-427C-8027-51D0FF24EBC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0A6BE566-AFAC-4DFA-B8A5-36AF2C2430E1} = {8972F878-45E7-43E0-AC85-516CD56FD1DC}
-		{9A301D3F-806A-44DC-A2AA-C7B9CB07572D} = {8972F878-45E7-43E0-AC85-516CD56FD1DC}
-		{5C41601B-46CD-478F-AD5B-04A5AECB1430} = {8972F878-45E7-43E0-AC85-516CD56FD1DC}
 		{7B0CB251-A951-4427-9771-F603359B4111} = {50E58D42-6D53-4DAA-9613-1B3803657D64}
+		{BE1C76A9-603C-47F2-BF41-55410F6F392B} = {8972F878-45E7-43E0-AC85-516CD56FD1DC}
+		{6224BEFD-C354-427C-8027-51D0FF24EBC0} = {8972F878-45E7-43E0-AC85-516CD56FD1DC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0027DC19-1DC6-4F37-A934-F2012788F1AB}

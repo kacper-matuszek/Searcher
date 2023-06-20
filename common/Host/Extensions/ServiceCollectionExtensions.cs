@@ -1,10 +1,9 @@
-﻿using System;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using Searcher.Persistence.Mongo;
-using Searcher.Persistence.Mongo.Initializers;
+using Searcher.Common.Persistence.Mongo;
+using Searcher.Common.Persistence.Mongo.Initializers;
 
 namespace Searcher.Common.Host.Extensions;
 

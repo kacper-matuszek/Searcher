@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Searcher.Persistence.Mongo;
+
+namespace Searcher.Common.Persistence.Mongo;
 
 public static class ConnectionStringBuilder
 {
