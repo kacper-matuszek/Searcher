@@ -397,3 +397,4 @@ _helps
 build-artifacts/*
 packages/*
 cake/tools/*
+.config/*
