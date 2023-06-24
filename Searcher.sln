@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searcher.Common.Application
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searcher.Common.Persistence.Mongo", "common\Persistence.Mongo\Searcher.Common.Persistence.Mongo.csproj", "{6224BEFD-C354-427C-8027-51D0FF24EBC0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searcher.Model", "src\Model\Searcher.Model.csproj", "{23F92BF9-F106-4CCE-A7B3-648A893FEDB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{6224BEFD-C354-427C-8027-51D0FF24EBC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6224BEFD-C354-427C-8027-51D0FF24EBC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6224BEFD-C354-427C-8027-51D0FF24EBC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23F92BF9-F106-4CCE-A7B3-648A893FEDB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23F92BF9-F106-4CCE-A7B3-648A893FEDB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23F92BF9-F106-4CCE-A7B3-648A893FEDB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23F92BF9-F106-4CCE-A7B3-648A893FEDB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{7B0CB251-A951-4427-9771-F603359B4111} = {50E58D42-6D53-4DAA-9613-1B3803657D64}
 		{BE1C76A9-603C-47F2-BF41-55410F6F392B} = {8972F878-45E7-43E0-AC85-516CD56FD1DC}
 		{6224BEFD-C354-427C-8027-51D0FF24EBC0} = {8972F878-45E7-43E0-AC85-516CD56FD1DC}
+		{23F92BF9-F106-4CCE-A7B3-648A893FEDB8} = {50E58D42-6D53-4DAA-9613-1B3803657D64}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0027DC19-1DC6-4F37-A934-F2012788F1AB}
