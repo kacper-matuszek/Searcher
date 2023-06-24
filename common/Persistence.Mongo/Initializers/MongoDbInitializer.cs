@@ -8,7 +8,7 @@ using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Bson.Serialization.Options;
 using MongoDB.Bson.Serialization.Serializers;
 
-namespace Searcher.Persistence.Mongo.Initializers;
+namespace Searcher.Common.Persistence.Mongo.Initializers;
 
 public class MongoDbInitializer : IMongoDbInitializer
 {

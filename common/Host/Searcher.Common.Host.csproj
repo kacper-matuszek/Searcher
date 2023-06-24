@@ -8,6 +8,6 @@
     <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Persistence.Mongo\Searcher.Persistence.Mongo.csproj" />
+    <ProjectReference Include="..\Persistence.Mongo\Searcher.Common.Persistence.Mongo.csproj" />
   </ItemGroup>
 </Project>

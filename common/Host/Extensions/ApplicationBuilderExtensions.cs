@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Searcher.Persistence.Mongo.Initializers;
+using Searcher.Common.Persistence.Mongo.Initializers;
 
 namespace Searcher.Common.Host.Extensions;
 

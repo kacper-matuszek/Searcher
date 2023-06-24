@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Searcher.Persistence.Mongo.Initializers;
+namespace Searcher.Common.Persistence.Mongo.Initializers;
 
 public interface IMongoDbInitializer
 {

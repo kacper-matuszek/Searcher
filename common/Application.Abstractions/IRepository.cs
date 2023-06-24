@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Searcher.Application.Abstractions;
+namespace Searcher.Common.Application.Abstractions;
 
 public interface IRepository<TEntity, in TKey>
     where TEntity : class, IKey<TKey>

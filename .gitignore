@@ -393,3 +393,8 @@ srcbinDebugnetcoreapp3.0
 _helps
 
 .configdotnet-tools.json
+
+build-artifacts/*
+packages/*
+cake/tools/*
+.config/*
