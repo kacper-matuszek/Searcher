@@ -9,7 +9,7 @@ using Searcher.Common.Persistence.Mongo;
 
 namespace Searcher.Common.Host.HealthChecks;
 
-public class MongoHealthCheck : IHealthCheck
+internal sealed class MongoHealthCheck : IHealthCheck
 {
     private readonly IMongoDatabase _database;
 
@@ -32,7 +32,8 @@ public class MongoHealthCheck : IHealthCheck
     {
         try
         {
-            await _database.RunCommandAsync((Command<BsonDocument>)"{ping:1}");
+            var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(2));
+            await _database.RunCommandAsync((Command<BsonDocument>)"{ping:1}", cancellationToken: cancellationTokenSource.Token);
         }
         catch (Exception)
         {
