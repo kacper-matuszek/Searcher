@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using Searcher.Common.Application.Abstractions;
@@ -24,30 +25,30 @@ public abstract class MongoRepository<TEntity, TKey> : IRepository<TEntity, TKey
     protected ProjectionDefinition<TEntity> Projection { get; set; }
     protected SortDefinition<TEntity> Sort { get; set; }
 
-    public virtual async Task<TEntity?> Get(TKey key) =>
-        await Get(e => e.Key.Equals(key)).ConfigureAwait(false);
+    public virtual async Task<TEntity?> Get(TKey key, CancellationToken cancellationToken = default) =>
+        await Get(e => e.Key.Equals(key), cancellationToken).ConfigureAwait(false);
 
-    public virtual async Task<TEntity?> Get(Expression<Func<TEntity, bool>> condition)
+    public virtual async Task<TEntity?> Get(Expression<Func<TEntity, bool>> condition, CancellationToken cancellationToken = default)
     {
         var entity = await Collection
             .Find(condition)
             .Project<TEntity>(Projection)
             .Sort(Sort)
-            .SingleOrDefaultAsync()
+            .FirstOrDefaultAsync(cancellationToken)
             .ConfigureAwait(false);
         return entity;
     }
 
-    public virtual async Task<IReadOnlyList<TEntity>> GetMany(IEnumerable<TKey> keys) =>
-        await GetMany(e => keys.Contains(e.Key)).ConfigureAwait(false);
+    public virtual async Task<IReadOnlyList<TEntity>> GetMany(IEnumerable<TKey> keys, CancellationToken cancellationToken = default) =>
+        await GetMany(e => keys.Contains(e.Key), cancellationToken).ConfigureAwait(false);
 
-    public virtual async Task<IReadOnlyList<TEntity>> GetMany(Expression<Func<TEntity, bool>> condition)
+    public virtual async Task<IReadOnlyList<TEntity>> GetMany(Expression<Func<TEntity, bool>> condition, CancellationToken cancellationToken = default)
     {
         var entities = await Collection
             .Find(condition)
             .Project<TEntity>(Projection)
             .Sort(Sort)
-            .ToListAsync()
+            .ToListAsync(cancellationToken)
             .ConfigureAwait(false);
 
         return entities;
@@ -75,13 +76,13 @@ public abstract class MongoRepository<TEntity, TKey> : IRepository<TEntity, TKey
             .ReplaceOneAsync(e => e.Key.Equals(entity.Key), entity)
             .ConfigureAwait(false);
 
-    public virtual async Task<bool> Exists(TKey key) =>
-        await Exists(e => e.Key.Equals(key)).ConfigureAwait(false);
+    public virtual async Task<bool> Exists(TKey key, CancellationToken cancellationToken = default) =>
+        await Exists(e => e.Key.Equals(key), cancellationToken).ConfigureAwait(false);
 
-    public virtual async Task<bool> Exists(Expression<Func<TEntity, bool>> condition) =>
+    public virtual async Task<bool> Exists(Expression<Func<TEntity, bool>> condition, CancellationToken cancellationToken = default) =>
         await Collection
             .Find(condition)
-            .AnyAsync()
+            .AnyAsync(cancellationToken)
             .ConfigureAwait(false);
 
     public virtual Task Delete(TEntity entity) =>
