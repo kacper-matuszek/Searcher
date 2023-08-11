@@ -10,7 +10,7 @@ internal static class ApplicationBuilderExtensions
     {
         var mongoInitializer = applicationBuilder.ApplicationServices.GetRequiredService<IMongoDbInitializer>();
 
-        mongoInitializer.Initialize();
+        mongoInitializer.Initialize().Wait();
 
         return applicationBuilder;
     }
