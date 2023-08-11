@@ -10,7 +10,7 @@ using MongoDB.Bson.Serialization.Serializers;
 
 namespace Searcher.Common.Persistence.Mongo.Initializers;
 
-public class MongoDbInitializer : IMongoDbInitializer
+internal sealed class MongoDbInitializer : IMongoDbInitializer
 {
     private static int _isInitialized = 0;
 

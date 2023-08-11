@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Searcher.Common.Persistence.Mongo;
 
-public static class ConnectionStringBuilder
+internal static class ConnectionStringBuilder
 {
     private const string MongoDb = "mongodb";
     private const string DefaultAuthDb = "admin";
