@@ -1,7 +1,7 @@
 ﻿using Searcher.Model.Shared.ValueObjects;
 using Xunit;
 
-namespace Searcher.Model.Tests;
+namespace Searcher.Model.Tests.Shared.ValueObjects;
 
 public partial class TagTests
 {
