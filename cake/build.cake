@@ -2,6 +2,7 @@
 #addin nuget:?package=Cake.FileHelpers&version=5.0.0
 
 #load "mainArguments.cake"
+#load "test.cake"
 
 var target = Argument("target", "Default");
 
@@ -27,6 +28,7 @@ Task("Build")
     });
 
 Task("Default")
-    .IsDependentOn("Build");
+    .IsDependentOn("Build")
+    .IsDependentOn("RunTest");
 
 RunTarget(target);
