@@ -6,3 +6,4 @@ var mainDirectory = Directory("..\\");
 var solutionFile = File($"{mainDirectory}\\{SearcherName}.sln");
 var buildArtifactsDirectory = Directory($"{mainDirectory}\\build-artifacts");
 var webHostFile = File($"{mainDirectory}\\{mainSourceDirectoryName}\\WebHost\\{SearcherName}.WebHost.csproj");
+var configuration = Argument("configuration", "Release");
