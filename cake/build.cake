@@ -1,14 +1,13 @@
 #tool "dotnet:?package=GitVersion.Tool&version=5.10.3"
 #addin nuget:?package=Cake.FileHelpers&version=5.0.0
 
+#load "mainArguments.cake"
+
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
-var buildArtifacts = Directory("..\\build-artifacts");
-var solutionFile = File("..\\Searcher.sln");
-var webHostFile = File("..\\src\\WebHost\\Searcher.WebHost.csproj");
 
 Task("Clean")
-    .Does(() => CleanDirectory(buildArtifacts));
+    .Does(() => CleanDirectory(buildArtifactsDirectory));
 
 Task("Restore")
     .IsDependentOn("Clean")
@@ -24,7 +23,7 @@ Task("Build")
         DotNetPublish(webHostFile, new DotNetPublishSettings{
             Configuration = configuration,
             NoRestore = true,
-            OutputDirectory = buildArtifacts                    
+            OutputDirectory = buildArtifactsDirectory                    
         });
     });
 
