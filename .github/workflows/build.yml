@@ -1,20 +1,19 @@
-name: master
+name: master-build
 
 on:
   push:
   pull_request:
     branches:
       - master
-      - 'releases/**'
     paths-ignore:
       - '**.md'
 
 jobs:
-  build:
+  windows-build:
     runs-on: windows-2022
     strategy:
       matrix:
-        dotnet-version: ['6.0.x']
+        dotnet-version: ['6.0.413']
     
     steps:
       - uses: actions/checkout@v2
@@ -22,22 +21,9 @@ jobs:
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-          include-prerelease: true
       - name: Create manifest
         run: dotnet new tool-manifest
       - name: Run the build script
         shell: pwsh
         run: .\Build.ps1 --target=Build
-  test:
-    needs: build
-    runs-on: windows-2022
-    strategy:
-      matrix:
-        dotnet-version: ['6.0.x']
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run tests
-        shell: pwsh
-        run: .\Build.ps1 --target=RunTest
 

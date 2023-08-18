@@ -1,0 +1,22 @@
+name: master-test
+
+on:
+  workflow_run:
+    workflows: [master-build]
+    types: 
+      - completed
+jobs:
+  windows-test:
+    needs: build
+    runs-on: windows-2022
+    strategy:
+      matrix:
+        dotnet-version: ['6.0.413']
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create manifest
+        run: dotnet new tool-manifest
+      - name: Run tests
+        shell: pwsh
+        run: .\Build.ps1 --target=RunTest
