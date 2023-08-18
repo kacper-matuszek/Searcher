@@ -9,7 +9,6 @@ on:
 
 jobs:
   windows-test:
-    needs: build
     runs-on: windows-2022
     strategy:
       matrix:
