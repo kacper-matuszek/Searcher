@@ -26,4 +26,7 @@ jobs:
       - name: Run the build script
         shell: pwsh
         run: .\Build.ps1 --target=Build
+      - name: Run tests
+        shell: pwsh
+        run: .\Build.ps1 --target=RunTest
 
