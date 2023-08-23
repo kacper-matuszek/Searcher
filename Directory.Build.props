@@ -3,6 +3,8 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplictUsings>enable</ImplictUsings>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<ServerGarbageCollection>true</ServerGarbageCollection>
+		<ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
         <Nullable>enable</Nullable>
         <Version>0.1.0</Version>
     </PropertyGroup>
