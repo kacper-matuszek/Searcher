@@ -42,8 +42,6 @@ public class MainApiPerformanceTests
         var runStats = NBomberRunner.RegisterScenarios(getHiStep)
             .Run();
 
-        var scenarioStats = runStats.ScenarioStats[0];
-
         _outputHelper.WriteLine($"OK: {runStats.AllOkCount}, FAILED: {runStats.AllFailCount}, REQUESTS: {runStats.AllRequestCount}");
 
         runStats.AllOkCount.Should().BeGreaterThanOrEqualTo(duration * expectedRequestsPerSecond);
