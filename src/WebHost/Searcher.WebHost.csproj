@@ -4,5 +4,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\common\Host\Searcher.Common.Host.csproj" />
+    <ProjectReference Include="..\Persistence.Mongo\Searcher.Persistence.Mongo.csproj" />
   </ItemGroup>
 </Project>

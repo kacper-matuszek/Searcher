@@ -1,1 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk"/>
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\Persistence.Mongo\Searcher.Common.Persistence.Mongo.csproj" />
+    <ProjectReference Include="..\Application.Abstractions\Searcher.Application.Abstractions.csproj" />
+  </ItemGroup>
+</Project>
