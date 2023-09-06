@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searcher.Model.Tests", "tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searcher.Performance.Tests", "test\Performance.Tests\Searcher.Performance.Tests.csproj", "{EE456E15-29FF-445B-905F-D90FAD8B6941}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searcher.Persistence.Mongo", "src\Persistence.Mongo\Searcher.Persistence.Mongo.csproj", "{202CA9EC-F706-4D72-A881-AD0A6F555F3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{EE456E15-29FF-445B-905F-D90FAD8B6941}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE456E15-29FF-445B-905F-D90FAD8B6941}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE456E15-29FF-445B-905F-D90FAD8B6941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{202CA9EC-F706-4D72-A881-AD0A6F555F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{202CA9EC-F706-4D72-A881-AD0A6F555F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{202CA9EC-F706-4D72-A881-AD0A6F555F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{202CA9EC-F706-4D72-A881-AD0A6F555F3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +75,7 @@ Global
 		{23F92BF9-F106-4CCE-A7B3-648A893FEDB8} = {50E58D42-6D53-4DAA-9613-1B3803657D64}
 		{1C0D88E2-A995-41BA-879D-E68F58C6317C} = {FE7520A9-0A49-4295-AEA1-3E2C608BD07A}
 		{EE456E15-29FF-445B-905F-D90FAD8B6941} = {FE7520A9-0A49-4295-AEA1-3E2C608BD07A}
+		{202CA9EC-F706-4D72-A881-AD0A6F555F3C} = {50E58D42-6D53-4DAA-9613-1B3803657D64}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0027DC19-1DC6-4F37-A934-F2012788F1AB}
