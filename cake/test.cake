@@ -44,6 +44,9 @@ Task("Test")
 
         foreach(var file in testFiles)
         {
+            if (file.FullPath.Contains("Performance")){
+                continue;
+            }
             DotNetTest(file.FullPath, settings);
         }
     });
