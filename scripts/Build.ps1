@@ -11,5 +11,5 @@ dotnet tool install Cake.Tool --version 2.2.0
 dotnet tool restore
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-dotnet cake ./cake/build.cake @args --project=Searcher
+dotnet cake ../cake/build.cake @args --project=Searcher
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
