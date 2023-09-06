@@ -1,0 +1,6 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\Application.Abstractions\Searcher.Common.Application.Abstractions.csproj" />
+    <ProjectReference Include="..\Model\Searcher.Model.csproj" />
+  </ItemGroup>
+</Project>

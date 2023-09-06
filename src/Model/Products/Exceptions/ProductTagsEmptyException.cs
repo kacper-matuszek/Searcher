@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Searcher.Model.Product.Exceptions;
+namespace Searcher.Model.Products.Exceptions;
 
 public sealed class ProductTagsEmptyException : Exception
 {
