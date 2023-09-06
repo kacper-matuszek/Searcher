@@ -25,8 +25,8 @@ jobs:
         run: dotnet new tool-manifest
       - name: Run the build script
         shell: pwsh
-        run: .\Build.ps1 --target=Build
+        run: .\scripts\Build.ps1 --target=Build
       - name: Run tests
         shell: pwsh
-        run: .\Build.ps1 --target=RunTest
+        run: .\scripts\Build.ps1 --target=RunTest
 
