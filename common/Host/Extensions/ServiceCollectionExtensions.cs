@@ -9,9 +9,9 @@ using System.Reflection;
 
 namespace Searcher.Common.Host.Extensions;
 
-internal static class ServiceCollectionExtensions
+public static class ServiceCollectionExtensions
 {
-    internal static IServiceCollection AddMongo(this IServiceCollection services, IConfiguration configuration, params Assembly[] assemblies)
+    public static IServiceCollection AddMongo(this IServiceCollection services, IConfiguration configuration, params Assembly[] assemblies)
     {
         if (assemblies.Length == 0)
             throw new ArgumentException("Assemblies array must have at least one assembly.");

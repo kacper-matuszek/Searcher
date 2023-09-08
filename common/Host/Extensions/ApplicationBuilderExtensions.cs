@@ -4,9 +4,9 @@ using Searcher.Common.Persistence.Mongo.Initializers;
 
 namespace Searcher.Common.Host.Extensions;
 
-internal static class ApplicationBuilderExtensions
+public static class ApplicationBuilderExtensions
 {
-    internal static IApplicationBuilder UseMongo(this IApplicationBuilder applicationBuilder)
+    public static IApplicationBuilder UseMongo(this IApplicationBuilder applicationBuilder)
     {
         var mongoInitializer = applicationBuilder.ApplicationServices.GetRequiredService<IMongoDbInitializer>();
 

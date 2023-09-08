@@ -18,7 +18,7 @@ public sealed partial class Product
 
     private void ValidateTags()
     {
-        if (_tags.Count == 0)
+        if (Tags.Count == 0)
             throw new ProductTagsEmptyException();
     }
 }

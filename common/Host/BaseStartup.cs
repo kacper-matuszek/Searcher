@@ -24,10 +24,7 @@ public abstract class BaseStartup : IStartup
 
     public virtual void ConfigureServices(IServiceCollection services)
     {
-        services.AddMongo(Configuration);
 
-        services.AddHealthChecks()
-            .AddCheck<MongoHealthCheck>(nameof(MongoHealthCheck));
     }
 
     public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -45,6 +42,5 @@ public abstract class BaseStartup : IStartup
                 }
             });
         });
-        app.UseMongo();
     }
 }

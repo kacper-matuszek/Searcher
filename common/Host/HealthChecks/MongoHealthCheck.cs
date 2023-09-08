@@ -9,7 +9,7 @@ using Searcher.Common.Persistence.Mongo;
 
 namespace Searcher.Common.Host.HealthChecks;
 
-internal sealed class MongoHealthCheck : IHealthCheck
+public sealed class MongoHealthCheck : IHealthCheck
 {
     private readonly IMongoDatabase _database;
 

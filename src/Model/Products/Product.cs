@@ -8,15 +8,13 @@ namespace Searcher.Model.Products;
 
 public sealed partial class Product : IKey<Guid>
 {
-    private readonly HashSet<Tag> _tags = new HashSet<Tag>();
-    
     public Product(
         string name,
-        IReadOnlyCollection<Tag> tags)
+        IReadOnlySet<Tag> tags)
     {
         Key = Guid.NewGuid();
         Name = name;
-        _tags = tags.ToHashSet();
+        Tags = tags.ToHashSet();
 
         Validate();
     }
@@ -26,5 +24,5 @@ public sealed partial class Product : IKey<Guid>
 
     public Guid Key { get; private set; }
     public string Name { get; private set; } = string.Empty;
-    public IReadOnlySet<Tag> Tags => _tags;
+    public IReadOnlySet<Tag> Tags { get; private set; } = new HashSet<Tag>();
 }
