@@ -4,20 +4,25 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using Searcher.Common.Persistence.Mongo;
 using Searcher.Common.Persistence.Mongo.Initializers;
+using System;
+using System.Reflection;
 
 namespace Searcher.Common.Host.Extensions;
 
 internal static class ServiceCollectionExtensions
 {
-    internal static IServiceCollection AddMongo(this IServiceCollection services, IConfiguration configuration)
+    internal static IServiceCollection AddMongo(this IServiceCollection services, IConfiguration configuration, params Assembly[] assemblies)
     {
+        if (assemblies.Length == 0)
+            throw new ArgumentException("Assemblies array must have at least one assembly.");
+
         services.Configure<MongoOptions>(configuration.GetSection(MongoOptions.SectionName));
         services.AddSingleton<IMongoClient>(sp =>
         {
             var options = sp.GetRequiredService<IOptions<MongoOptions>>().Value;
             return new MongoClient(ConnectionStringBuilder.Build(options));
         });
-        services.AddTransient<IMongoDbInitializer, MongoDbInitializer>(sp => new MongoDbInitializer());
+        services.AddTransient<IMongoDbInitializer, MongoDbInitializer>(sp => new MongoDbInitializer(assemblies));
         services.AddTransient<IMongoDatabase>(sp =>
         {
             var options = sp.GetRequiredService<IOptions<MongoOptions>>().Value;
